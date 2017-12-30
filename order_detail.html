@@ -1,0 +1,76 @@
+<!--/*
+ * @Author: huangbo 
+ * @Date: 2017-12-21 14:08:32 
+ * @Last Modified by:   heying 
+ * @Last Modified time: 2017-12-21 14:08:32 
+ */-->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="keywords" content="借光图书"/>
+     <meta name="author" content="heying, 848032671@qq.com"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no;">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <meta name = "format-detection" content ="telephone=no">
+     <title>我的订单</title>    
+     <link rel="stylesheet" href="css/base.css">
+     <link rel="stylesheet" href="css/library.css">
+     <link rel="stylesheet" href="css/animate.css">
+     <link rel="stylesheet" href="css/toast.css">
+     <script src="js/jquery-3.2.1.js"></script>
+     <script src="js/toast.js"></script>
+     <script src="js/library.js"></script>
+     <script src="js/vue.js"></script>
+     <script src="js/url.js"></script>
+ </head>
+ <body class="body">
+     <div class="detail_content">
+         <div class="book_content">
+             <img src="images/fuhuali.jpg" class="bookcover">
+             <div class="right_book_info">
+                 <div class="book_name">借光共享图书</div>
+                 <div class="book_info_item"><div class="tip">作者:</div><div class="thing">[伊]本·拉灯</div></div>
+                 <div class="book_info_item"><div class="tip">翻译:</div><div class="thing">[中]xjb·lg</div></div>
+                 <div class="book_info_item"><div class="tip">原著:</div><div class="thing">borrow a book</div></div>
+                 <div class="book_info_item"><div class="tip">出版社:</div><div class="thing">---</div></div>
+                 <div class="book_info_item"><div class="tip">出版日期:</div><div class="thing">2017-12</div></div>
+                 <div class="book_info_item"><div class="tip">页数:</div><div class="thing">15789页</div></div>
+                 <div class="book_info_item"><div class="tip">借光价:</div><div class="thing">45元</div></div>
+             </div>
+         </div>
+         <div class="crash_content">
+             <div class="borrow_day">
+                 <div class="day">5</div>
+                 <div class="tip">借阅时间(天)</div>
+                 <div class="subtip">(不足1天按1天计)</div>
+             </div>
+             <div class="borrow_crash">
+                 <button class="btn">待支付</button>
+                 <div class="crash crash_active">8.00</div>
+                 <div class="tip">消费金额(元)</div>
+             </div>
+         </div>
+         <div class="other_content">
+             <div class="tip">借书时间/地点</div>
+             <div class="thing">
+                 <div class="time">2017/12/05 15:12</div>
+                 <div class="site">吉大</div>
+             </div>
+             <div class="tip">还书时间/地点</div>
+             <div class="thing">
+                <div class="time">2017/12/05 15:12</div>
+                <div class="site">jilao street</div> 
+            </div>             
+         </div>
+     </div>
+     <button class="book_sharebtn">分享阅读</button>
+ </body>
+ <script>
+    //  parmas
+    // parmas
+$('.borrow_crash').on('click',function(){
+    location.href='pay_suc.html'
+});
+ </script>
+ </html>

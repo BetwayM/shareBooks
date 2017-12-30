@@ -1,0 +1,128 @@
+<!--
+ * @Author: huangbo 
+ * @Date: 2017-11-21 13:26:00 
+ * @Last Modified by:   heying 
+ * @Last Modified time: 2017-11-21 13:26:00 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="借光图书"/>
+    <meta name="author" content="heying, 848032671@qq.com"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no;">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name = "format-detection" content ="telephone=no">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/library.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/library.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/url.js"></script>
+    <title>借光共享图书</title>
+</head>
+<body class="body">
+    <div class="account_main_select">
+        <div class="account_item animated flipInX" id="family">
+            <div class="account_top account_active">
+                <span class="title">家庭账户</span>
+                <span class="tag">特惠</span>
+            </div>
+            <div class="account_pot_left account_active"></div>
+            <div class="account_pot_right account_active"></div>
+            <div class="account_bottom account_active">
+                <div class="acc_bottom_left">
+                    <div class="tip">可容纳3名成员</div>
+                    <div class="tip">大容量，可借3本书</div>
+                    <div class="tip">借书费用1元/本/天</div>
+                </div>
+                <div class="acc_bottom_right">
+                    <div class="crash_true">99元</div>
+                    <div class="crash_false">199元</div>
+                </div>
+                <img src="images/select.png" class="account_select_icon" style="display:block">
+            </div>
+            
+        </div>
+        <div class="account_item animated flipInX" id="personal">
+            <div class="account_top">
+                <span class="title">个人账户</span>
+                <!-- <span class="tag">特惠</span> -->
+            </div>
+            <div class="account_pot_left"></div>
+            <div class="account_pot_right"></div>
+            <div class="account_bottom">
+                <div class="acc_bottom_left">
+                    <div class="tip">一次借阅1本书</div>
+                    <div class="tip">借书费用1元/天</div>
+                </div>
+                <div class="acc_bottom_right">
+                    <div class="crash_true">49元</div>
+                    <div class="crash_false">99元</div>
+                </div>
+                <img src="images/select.png" class="account_select_icon">                
+            </div>         
+        </div>
+        <div class="account_tip">选择支付方式</div>
+    </div>
+    <div class="account_zf animated fadeInUp">
+        <div class="select_wx">
+            <span class="wx_zf_icon">&#xe601;</span>
+            <span class="title">微信支付</span>
+            <span class="select">&#xe6a0;</span>
+        </div>
+        <button class="wx_zf_btn">去支付</button>
+        <div class="zf_tip">归还书籍后，押金可随时提现</div>
+    </div>
+    <div class="cover" id="cover">
+    <div class="pop_model animated fadeInUpBig" id="pop">
+        <div class="tip" id="pop_tip">提示</div>
+        <div class="title" id="pop_title">您还未交押金</div>
+        <div class="btns">
+            <button class="btn" id="btn1">地方</button>
+            <button class="btn" id="btn2">大师傅大</button>
+        </div>
+        <div style="width:100%;height:8px"></div>
+    </div>
+    </div>
+</body>
+<script>
+    // parms
+    var select_type=1;//用户选择的支付类型，默认99元,1,99元，2，49元
+    // parms
+    $('.account_item').on('click',function(e){
+        $('.account_item').find('.account_top').removeClass('account_active');
+        $('.account_item').find('.account_bottom').removeClass('account_active');
+        $('.account_item').find('.account_pot_left').removeClass('account_active');
+        $('.account_item').find('.account_pot_right').removeClass('account_active');
+        $('.account_item').find('.account_select_icon').hide();        
+        $(this).find('.account_top').addClass('account_active');
+        $(this).find('.account_bottom').addClass('account_active');     
+        $(this).find('.account_pot_left').addClass('account_active');
+        $(this).find('.account_pot_right').addClass('account_active');
+        $(this).find('.account_select_icon').show();
+        if($(this).attr('id')=='family'){
+            select_type=1;
+        }else{
+            select_type=2;
+        }
+    });
+    // 点击支付按钮
+    $('.wx_zf_btn').on('click',function(){
+        PopWithBtn({
+            "tip":"提示",
+            "title":"还未开通支付“^_^”",
+            "btns":['知道啦'],
+            "cancel":function(){
+                $('#cover').hide()
+            },
+            "confirm":function(){
+                $('#cover').hide()
+            }
+        });
+    });
+</script>
+</html>

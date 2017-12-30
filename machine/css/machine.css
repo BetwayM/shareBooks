@@ -1,0 +1,444 @@
+.device{
+    width: 1080px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 25px;
+    color: #222;
+    font-weight: bold;
+    padding-left: 40px;
+    background: #5555ff;
+}
+.banner{
+    display: block;
+    width: 1080px;
+    height:608.625px;
+    margin: 0 auto;    
+}
+.book{
+    display: block;
+    width: 1080px;
+    height: 1261.5px;
+    margin: 0 auto;
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    
+}
+.swiper-container-horizontal>.swiper-pagination{
+    bottom: 15px;
+}
+.swiper-pagination-bullet{
+    width: 25px;
+    height: 25px;
+}
+.swiper-pagination-bullet-active{
+    width: 30px;
+    height: 30px;
+    background: #5555ff;
+}
+.swiper-slide {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.swiper-slide>img{
+    width: 100%;
+    height: 100%;
+}
+.book_content{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    overflow-y: scroll;
+}
+.book_item{
+    width: 216px;
+    margin-left: 43.2px;
+    margin-top: 40px;
+    height: 360px;
+    border: 2px solid #5555ff;
+    background: #fff;
+    float: left;
+}
+.book_item>img{
+    width: 100%;
+    height: 280px;
+}
+.book_item>.name{
+    width: 100%;
+    text-align: left;
+    height: 40px;
+    padding-left: 10px;
+    line-height: 40px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #666;    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.book_item>.author{
+    width: 100%;
+    padding-left: 10px;
+    height: 40px;
+    text-align: left;
+    line-height: 40px;
+    font-size: 25px;    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    color: #aaa;
+}
+.return_btn{
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    bottom: 10px;
+   left: 940px;
+    z-index: 10;
+}
+/* s书籍详情 */
+.detail{
+    float: left;
+    width: 1080px;
+    margin-top: 20px;
+}
+.book_main{
+    float: left;
+    width: 1080px;
+    height: 360px;
+    background: #fff;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.book_main>img{
+    width: 216px;
+    float: left;
+    height: 360px;    
+}
+.book_detail_right{
+    width: 784px;
+    height: 100%;
+    float: left;
+    padding-left: 20px;
+}
+.book_name{
+    width: 100%;
+    float: left;
+    max-width: 764px;
+    line-height: 40px;
+    font-size: 25px;
+    color: #222;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.detail_item{
+    width: 100%;
+    float: left;
+    max-width: 764px;
+    line-height: 40px;
+    font-size: 22px;
+    color: #222;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.detail_item>span{
+    color: #aaa;
+}
+.borrow_btn{
+    width: 1000px;
+    float: left;
+    margin-top: 40px;
+    margin-left: 40px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    background-color: #5555ff;
+}
+.book_tipwithicon{
+    width: 1000px;
+    height: 40px;
+    float: left;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+.book_tipwithicon>span{
+    line-height: 40px;
+    float: left;
+    padding-left: 10px;
+    font-size: 25px;
+    font-weight: bold;    
+}
+.book_tipwithicon>img{
+    width: 40px;
+    float: left;
+    height: 40px;
+}
+.book_intro{
+    width: 1000px;
+    margin-left: 40px;
+    line-height: 40px;
+    font-size: 22px;
+    color: #222;
+    text-indent: 2em;
+}
+.book_time{
+    width: 1000px;
+    margin-left: 40px;
+    color: #222;
+    line-height: 40px;
+    font-size: 22px;
+}
+.book_time>span{
+    color: #aaa;
+}
+.book_img{
+    width: 1000px;
+    margin-left: 40px;
+    height: 360px;
+}
+#bookimg>.swiper-wrapper>.swiper-slide{
+    width: 216px !important;
+}
+#bookimg>.swiper-wrapper>.swiper-slide>img{
+    width: 216px;
+}
+.fixed_btn{
+    position: fixed;
+    bottom: 50px;
+    left: 870px;
+    z-index: 9999;
+}
+.btn_item{
+    width: 50px;
+    height: 50px;
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    margin-left: 5px;
+    font-weight: blod;
+    line-height: 50px;
+    border-radius: 25px;
+    float: left;
+    background-color: #5555ff;
+}
+/* 二维码弹窗 */
+.cover{
+    display: none;
+    position: fixed;
+    z-index: 999999999;
+    top: 0;
+    left: 0;
+    width: 1080px;
+    height: 1920px;
+    background: rgba(0, 0, 0, .5);
+}
+.ercode_content{
+    width: 700px;
+    height: 900px;
+    margin-top: 765px;
+    padding-top: 40px;
+    margin-left: 190px;
+    background: #fff;
+}
+.ercode_content>.tip{
+    width: 100%;
+    height: 210px;
+    color: #aaa;
+    line-height: 210px;
+    text-align: center;
+    font-size: 30px;
+                                                                                                                                                                                               
+}
+.codeborder>img{
+    width: 500px;
+    height: 500px;
+    border:20px solid #fff;    
+}
+.codeborder{
+    margin-left: 80px;
+    width: 540px;
+    height: 540px;
+    
+    border:20px solid #5555ff;
+}
+.codebtn>span{
+    font-family: iconfont !important;
+    font-size: 30px;
+    line-height: 80px;
+    padding-right: 20px;
+}
+.codebtn{
+    color: #aaa;
+    width: 200px;
+    height: 80px;
+    border: none;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    margin-left: 250px;
+    font-size: 25px;
+    line-height: 80px;
+
+    border-radius: 40px;
+}
+/* 借书成功 */
+.tip_big{
+    width: 1080px;
+    margin-top: 100px;
+    font-size: 25px;
+    line-height: 50px;
+    color: #222;
+    text-align: center;
+    font-weight: bold;
+}
+.tip_big>span{
+    color: #5555ff;
+    background: #fff;
+    font-weight: 40px;
+}
+.tip_normal{
+    width: 1080px;
+    line-height: 50px;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 22px;
+}
+.animate_borrow{
+    width: 1080px;
+    margin-top: 150px;
+}
+.animate_borrow>img{
+    display: block;
+    margin: 0 auto;
+}
+/* 确定还书 */
+.return_info{
+    width: 1000px;
+    float: left;
+    margin-left: 40px;
+    margin-top: 50px;
+    background: #edf1fe;
+    padding:40px;
+}
+.return_info>.crash,.return_info>.day{
+    line-height: 50px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #222;
+    text-align: left;
+}
+.return_info>.crash>span{
+    font-size: 25px;
+    color: #5555ff;
+}
+.return_info>.timesite{
+    line-height: 50px;
+    font-size: 22px;
+    font-weight: normal;
+    color: #222;
+    text-align: left;
+}
+.return_info>.timesite>span{
+    padding-left: 40px;
+}
+.change_withicon{
+    width: 1000px;
+    margin-left: 40px;
+    line-height: 50px;
+    text-align: right;
+    padding-right: 88px;
+    color: #aaa;
+    font-size: 22px;    
+}
+/* 还书成功 */
+.tip_withbtn{
+    width: 1000px;
+    margin-left: 40px;
+    text-align: center;
+
+
+}
+.tip_withbtn>span{
+    line-height: 50px;
+    color: #aaa;
+    font-size: 22px;    
+    padding-right: 20px;
+}
+.timetohome{
+    text-align: center;
+    padding-left: 80px;
+    padding-right: 80px;
+
+    border: none;
+    border-radius: 5px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 22px;
+    color: #fff;
+    background-color: #5555ff;
+}
+.book_intro_book{
+    width: 1000px;
+    margin-left: 40px;   
+    background: #fff;
+}
+.intro_item{
+    width: 216px;
+    margin-left: 88px;
+    margin-top: 40px;
+    height: 360px;
+    border: 2px solid #5555ff;
+    background: #fff;
+    float: left;
+}
+.intro_item>img{
+    width: 100%;
+    height: 280px;
+    margin-left: 0px;
+}
+.intro_item>.name{
+    width: 100%;
+    text-align: left;
+    height: 40px;
+    padding-left: 10px;
+    line-height: 40px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #666;    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.intro_item>.author{
+    width: 100%;
+    padding-left: 10px;
+    height: 40px;
+    text-align: left;
+    line-height: 40px;
+    font-size: 25px;    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    color: #aaa;
+}

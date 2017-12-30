@@ -1,0 +1,93 @@
+<!--/*
+ * @Author: huangbo 
+ * @Date: 2017-12-21 14:08:32 
+ * @Last Modified by:   heying 
+ * @Last Modified time: 2017-12-21 14:08:32 
+ */-->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="keywords" content="借光图书"/>
+     <meta name="author" content="heying, 848032671@qq.com"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no;">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <meta name = "format-detection" content ="telephone=no">
+     <title>我的订单</title>    
+     <link rel="stylesheet" href="css/base.css">
+     <link rel="stylesheet" href="css/library.css">
+     <link rel="stylesheet" href="css/animate.css">
+     <link rel="stylesheet" href="css/toast.css">
+     <script src="js/jquery-3.2.1.js"></script>
+     <script src="js/toast.js"></script>
+     <script src="js/library.js"></script>
+     <script src="js/vue.js"></script>
+     <script src="js/url.js"></script>
+ </head>
+ <body class="body">
+        <div class="userInfo animated fadeInDown">
+            <img src="images/head.png" class="user_head">
+            <div class="userinfo_pot_left"></div>
+            <div class="userinfo_pot_right"></div>
+            <div class="name">FazeClan</div>
+            <div class="tip">您的家庭包月卡将于2017-05-15到期</div>
+        </div>
+        <div class="userinfo_tip  animated fadeInLeft">我要购卡</div>
+        <div class="baoyue_card">
+            <div class="baoyue_carditem animated bounceIn cardactive" value="20">
+                <div class="top">
+                    <span class="true_crash">20元</span>
+                    <span class="false_crash">25元</span>
+                </div>
+                <div class="bottom">
+                    <span class="month">1个月</span>
+                </div>
+            </div>
+            <div class="baoyue_carditem animated bounceIn" value="55">
+                <div class="top">
+                    <span class="true_crash">55元</span>
+                    <span class="false_crash">60元</span>
+                </div>
+                <div class="bottom">
+                    <span class="month">3个月</span>
+                </div>
+            </div>
+            <div class="baoyue_carditem animated bounceIn" value="100">
+                <div class="top">
+                    <span class="true_crash">100元</span>
+                    <span class="false_crash">120元</span>
+                </div>
+                <div class="bottom">
+                    <span class="month">6个月</span>
+                </div>
+            </div>
+            <div class="baoyue_carditem animated bounceIn" value="180">
+                <div class="top">
+                    <span class="true_crash">180元</span>
+                    <span class="false_crash">240元</span>
+                </div>
+                <div class="bottom">
+                    <span class="month">12个月</span>
+                </div>
+            </div>
+            <span class="special_tip">送护眼眼镜兑换券</span>
+        </div>
+        <div class="baoyue_xuzhi animated fadeInUp">
+            <div class="baoyue_xzitem">·包月卡生效期间，所借书籍均为免费。</div>
+            <div class="baoyue_xzitem">·当前若无包月卡，购买后立即生效；当前若已有月卡，续费后有 顺延(一个月=30天)。</div>
+            <div class="baoyue_xzitem">·退押金后无法继续借书，家庭组解散，已购买的月卡有效期不变；重新缴纳家庭组押金后，相应月卡权益立即恢复。</div>
+        </div>
+        <button class="payForBaoyue animated fadeInUp">购买</button>
+ </body>
+ <script>
+    //  parmas
+    var crash=20;//包月金额，默认20元
+    // parmas
+     $('.baoyue_carditem').on('click',function(){
+        $('.baoyue_carditem').removeClass('cardactive');
+        $(this).addClass('cardactive');
+        $(this).show();
+        crash=$(this).attr('value');
+     });
+ </script>
+ </html>

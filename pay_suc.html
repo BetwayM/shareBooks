@@ -1,0 +1,52 @@
+<!--
+ * @Author: huangbo 
+ * @Date: 2017-11-21 13:26:00 
+ * @Last Modified by:   heying 
+ * @Last Modified time: 2017-11-21 13:26:00 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="借光图书"/>
+    <meta name="author" content="heying, 848032671@qq.com"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no;">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name = "format-detection" content ="telephone=no">
+    <title>借书成功</title>    
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/library.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/library.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/url.js"></script>
+</head>
+<body class="body">
+    <div class="suc_big_tip"><span>&#xe6a0;</span>支付成功!</div>
+   <div class="tip_item">
+      <div class="title">购包月卡，借书更优惠</div> 
+      <div class="main">包月卡优惠</div> 
+      <div class="tip"><div>·</div>包月借书更优惠，10元借书一个月</div> 
+      <div class="tip"><div>·</div>借书更方便，还书后自动完成订单</div> 
+      <div class="tool" id="baoyue">去购卡>></div> 
+   </div>
+   <div class="tip_item">
+        <div class="title">充值余额，借书更方便</div> 
+        <div class="main">充值优惠</div> 
+        <div class="tip"><div>·</div>借书更方便，还书后自动扣款</div> 
+        <div class="tool" id="recharge">去充值>></div> 
+     </div>
+     <button class="suc_backtool_btn">确认</button>
+</body>
+<script>
+$('#baoyue').on('click',function(){
+    location.href='baoyue.html';
+});
+$('#recharge').on('click',function(){
+    location.href='recharge.html';
+});
+</script>
+</html>

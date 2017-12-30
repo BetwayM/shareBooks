@@ -1,0 +1,162 @@
+<!--/*
+ * @Author: huangbo 
+ * @Date: 2017-12-21 14:08:32 
+ * @Last Modified by:   heying 
+ * @Last Modified time: 2017-12-21 14:08:32 
+ */-->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="keywords" content="借光图书"/>
+     <meta name="author" content="heying, 848032671@qq.com"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no;">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <meta name = "format-detection" content ="telephone=no">
+     <title>我的订单</title>    
+     <link rel="stylesheet" href="css/base.css">
+     <link rel="stylesheet" href="css/library.css">
+     <link rel="stylesheet" href="css/animate.css">
+     <link rel="stylesheet" href="css/toast.css">
+     <script src="js/jquery-3.2.1.js"></script>
+     <script src="js/toast.js"></script>
+     <script src="js/library.js"></script>
+     <script src="js/vue.js"></script>
+     <script src="js/url.js"></script>
+ </head>
+ <body class="body">
+     <ul class="orderList">
+         <li>
+             <div class="left">
+                <div class="order_top">
+                    <span class="name">nip_tz(主)</span>
+                    <span class="time">2017-02-16 08:56</span>
+                </div>
+                <div class="order_bottom">
+                    <span class="inout">花费5.00元</span>
+                    <span class="book">金瓶梅</span>
+                    <span class="status statusRed">待支付</span>
+                </div>
+             </div>
+            <div class="order_right">&#xe620;</div>
+         </li>
+         <li>
+            <div class="left">
+               <div class="order_top">
+                   <span class="name">nip_tz(副)</span>
+                   <span class="time">2017-02-16 08:56</span>
+               </div>
+               <div class="order_bottom">
+                   <span class="inout">花费5.00元</span>
+                   <span class="book">金瓶梅</span>
+                   <span class="status">已完成</span>
+               </div>
+            </div>
+           <div class="order_right">&#xe620;</div>
+        </li>
+        <li>
+            <div class="left">
+               <div class="order_top">
+                   <span class="name">nip_tz(副)</span>
+                   <span class="time">2017-02-16 08:56</span>
+               </div>
+               <div class="order_bottom">
+                   <span class="inout">花费5.00元</span>
+                   <span class="book">金瓶梅</span>
+                   <span class="status">已完成</span>
+               </div>
+            </div>
+           <div class="order_right">&#xe620;</div>
+        </li>
+        <li>
+            <div class="left">
+               <div class="order_top">
+                   <span class="name">nip_tz(副)</span>
+                   <span class="time">2017-02-16 08:56</span>
+               </div>
+               <div class="order_bottom">
+                   <span class="inout">花费5.00元</span>
+                   <span class="book">金瓶梅</span>
+                   <span class="status">已完成</span>
+               </div>
+            </div>
+           <div class="order_right">&#xe620;</div>
+        </li>
+        <li>
+            <div class="left">
+               <div class="order_top">
+                   <span class="name">nip_tz(副)</span>
+                   <span class="time">2017-02-16 08:56</span>
+               </div>
+               <div class="order_bottom">
+                   <span class="inout">花费5.00元</span>
+                   <span class="book">金瓶梅</span>
+                   <span class="status">已完成</span>
+               </div>
+            </div>
+           <div class="order_right">&#xe620;</div>
+        </li>
+        <li>
+            <div class="left">
+               <div class="order_top">
+                   <span class="name">nip_tz(副)</span>
+                   <span class="time">2017-02-16 08:56</span>
+               </div>
+               <div class="order_bottom">
+                   <span class="inout">花费5.00元</span>
+                   <span class="book">金瓶梅</span>
+                   <span class="status">已完成</span>
+               </div>
+            </div>
+           <div class="order_right">&#xe620;</div>
+        </li>
+        <li>
+            <div class="left">
+               <div class="order_top">
+                   <span class="name">nip_tz(副)</span>
+                   <span class="time">2017-02-16 08:56</span>
+               </div>
+               <div class="order_bottom">
+                   <span class="inout">花费5.00元</span>
+                   <span class="book">金瓶梅</span>
+                   <span class="status">已完成</span>
+               </div>
+            </div>
+           <div class="order_right">&#xe620;</div>
+        </li>
+        <li>
+            <div class="left">
+               <div class="order_top">
+                   <span class="name">nip_tz(副)</span>
+                   <span class="time">2017-02-16 08:56</span>
+               </div>
+               <div class="order_bottom">
+                   <span class="inout">花费5.00元</span>
+                   <span class="book">金瓶梅</span>
+                   <span class="status">已完成</span>
+               </div>
+            </div>
+           <div class="order_right">&#xe620;</div>
+        </li>
+        <li>
+            <div class="left">
+               <div class="order_top">
+                   <span class="name">nip_tz(副)</span>
+                   <span class="time">2017-02-16 08:56</span>
+               </div>
+               <div class="order_bottom">
+                   <span class="inout">花费5.00元</span>
+                   <span class="book">金瓶梅</span>
+                   <span class="status">待支付</span>
+               </div>
+            </div>
+           <div class="order_right">&#xe620;</div>
+        </li>
+     </ul>
+ </body>
+ <script>
+$('.orderList li').on('click',function(){
+    location.href='order_detail.html'
+});
+ </script>
+ </html>

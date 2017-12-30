@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="摩力宝贝计划,摩力云科技"/>
+    <meta name="author" content="heying, 848032671@qq.com"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name = "format-detection" content = "telephone=no">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/library.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/library.js"></script>
+
+    <title>测试-借光共享图书</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            outline: none;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+        }
+        a{
+            text-decoration: none;
+        }
+        a:visited{
+            text-decoration: none;
+        }
+        .btnse{
+            width: 100%;
+            margin-top: 20px;
+            /* padding: 5px; */
+        }
+    .btne{
+        float: left;
+        width: 90%;
+       padding-top:10px; 
+       padding-left: 10%;
+       /* padding-right: 5%; */
+    }
+    .btnee:active{
+        background: #5555ff;
+    }
+    .btnee{
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        border:none;
+        border-radius: 3px;
+        text-align: center;
+        font-weight: bold;
+        background: #5555ff;
+        color: #fff;
+    }
+    </style>
+</head>
+<body>
+    <div class="btnse">
+    <div class="btne"><a href="index.html"><button class="btnee">主页</button></a></div>
+    <div class="btne"><a href="phone.html"><button class="btnee">手机号码绑定</button></a></div>
+    <div class="btne"><a href="borrow_suc.html"><button class="btnee">借书成功</button></a></div>
+    <div class="btne"><a href="return_suc.html"><button class="btnee">还书成功</button></a></div>
+    <div class="btne"><a href="account_pay.html"><button class="btnee">押金支付</button></a></div>
+    <div class="btne"><a href="invitation.html"><button class="btnee">邀请</button></a></div>
+    <div class="btne"><a href="main.html"><button class="btnee">个人主页</button></a></div>
+    <div class="btne"><a ><button  class="btnee" onclick="pop()">。。。</button></a></div>
+   
+    </div>
+    <div class="cover" id="cover">
+            <div class="pop_model animated fadeInUpBig" id="pop">
+                <div class="tip" id="pop_tip">提示</div>
+                <div class="title" id="pop_title">您还未交押金</div>
+                <div class="btns">
+                    <button class="btn" id="btn1">地方</button>
+                    <button class="btn" id="btn2">大师傅大</button>
+                </div>
+                <div style="width:100%;height:8px"></div>
+            </div>
+            </div>
+</body>
+<script>
+    function pop(){
+        PopWithBtn({
+    "tip":"提示",
+    "title":"正在对接。。。",
+    "btns":['知道了'],
+    "cancel":function(){
+        $('#cover').hide()
+    },
+    "confirm":function(){
+        $('#cover').hide()
+    }
+});
+    }
+ 
+ 
+</script>
+
+</html>

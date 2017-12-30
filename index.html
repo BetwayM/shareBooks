@@ -1,0 +1,586 @@
+<!--
+ * @Author: huangbo 
+ * @Date: 2017-11-21 13:26:00 
+ * @Last Modified by:   heying 
+ * @Last Modified time: 2017-11-21 13:26:00 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="借光图书"/>
+    <meta name="author" content="heying, 848032671@qq.com"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no;">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name = "format-detection" content ="telephone=no">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/library.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/library.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/url.js"></script>
+    <!-- gaodelbs -->
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.2&key=59744d787042b1ef9b5fa87fa8161a97"></script>
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main.css?v=1.0"/>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <!-- weixinsdk -->
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+    <script src="js/wxsdk.js"></script>
+    <!-- 下拉刷新 -->
+    <script type="text/javascript" src="js/p-pull-refresh.js"></script>
+    <title>借光共享图书</title>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <!-- 地图显示模式 -->
+    <div id="show_map" class="show_all animated fadeIn">
+ <div class="nav_top_main shadow-bottom animated slideInDown">
+    <input type="text" class="nav_site_search">
+    <img src="images/head.png" class="head_btn">
+    <span class="searchicon"></span>
+    <div class="hamb_btn">&#xe607;</div>
+ </div>
+ <!-- 缴纳押金 -->
+ <div class="deposit shadow-all animated slideInRight">您尚未缴纳押金!
+     <button class="deposit_btn">充值押金</button>
+ </div>
+ <!-- 主页按钮 -->
+ <button class="kefu_btn shadow-all animated slideInLeft" style='bottom:170px;'>&#xe6f7;</button><!-- 客服 -->
+ <button class="position_btn shadow-all animated slideInLeft" id="position" >&#xe8de;</button><!-- 定位 -->
+ <button class="outbook_btn shadow-all animated slideInUp" id="borrow"><span>&#xe696;</span>借书</button><!-- 借书 -->
+ <button class="inbook_btn shadow-all animated slideInUp" id="return"><span>&#xe696;</span>还书</button><!-- 还书 -->
+ <!-- 高德地图 -->
+ <div id="library_map" class="library_map"></div>
+</div>
+<!-- 列表显示模式 -->
+<div id="show_list" class="show_all hide  animated fadeIn">
+    <div class="nav_top_main shadow-bottom animated slideInDown">
+        <input type="text" class="nav_site_search">
+    <img src="images/head.png" class="head_btn">
+        <span class="searchicon"></span>
+        <div class="hamb_btn" style="font-size:30px;">&#xe8e2;</div>
+    </div>
+    <div id="map_list" class="map_list">
+        <!-- <div class="loading-warp"><div class="box"><div><img src="images/loading.gif" /></div><div class="text">下拉开始刷新</div></div></div> -->
+        <ul class="list_site">
+            <li id="list1">
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                    <span class="name">富華里</span>
+                    <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                    <span class="tip1">可借书籍20种</span>
+                    <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/chataoli.jpg" alt="">
+                <div class="nameAdis">
+                <span class="name">茶桃里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区吉大白莲花路56号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍15种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍18种</span>
+                <span class="tip2 tip_red">还书箱已满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2 tip_red">还书箱已满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/chataoli.jpg" alt="">
+                <div class="nameAdis">
+                <span class="name">茶桃里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/fuhuali.jpg" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2 tip_red">还书箱已满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/fuhuali.jpg" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2 tip_red">还书箱已满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/fuhuali.jpg" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/fuhuali.jpg" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2 tip_red">还书箱已满</span>
+                </div>
+            </li><li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2 tip_red">还书箱已满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2 tip_red">还书箱已满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2 tip_red">还书箱已满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2 tip_red">还书箱已满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2 tip_red">还书箱已满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2 tip_red">还书箱已满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li><li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/fuhuali.jpg" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2 tip_red">还书箱已满</span>
+                </div>
+            </li><li>
+                <img src="images/chataoli.jpg" alt="">
+                <div class="nameAdis">
+                <span class="name">茶桃里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2">还书箱未满</span>
+                </div>
+            </li>
+            <li>
+                <img src="images/head.png" alt="">
+                <div class="nameAdis">
+                <span class="name">富華里</span>
+                <span class="dis">200米</span>
+                </div>
+                <div class="detail_site">珠海市香洲区九洲大道2021号</div>
+                <div class="item_tips">
+                <span class="tip1">可借书籍20种</span>
+                <span class="tip2 tip_red">还书箱已满</span>
+                </div>
+            </li>
+        </ul>
+        <div class="map_list_tip">(^。^)!我是有底线的...</div>
+    </div>
+</div>
+<!-- 主页弹窗 -->
+<div class="cover" id="cover">
+<div class="pop_model animated fadeInUpBig" id="pop">
+    <div class="tip" id="pop_tip">提示</div>
+    <div class="title" id="pop_title">您还未交押金</div>
+    <div class="btns">
+        <button class="btn" id="btn1">地方</button>
+        <button class="btn" id="btn2">大师傅大</button>
+    </div>
+    <div style="width:100%;height:8px"></div>
+</div>
+</div>
+</body>
+<script>
+    var show_type=1;//展示模式，1地图，2列表
+    // 设置地图高度
+    window.onresize = function(){//检测屏幕变化
+        $('#library_map').css('height',$(window).height()+20) 
+    };
+    $('#library_map').css('height',$(window).height()+20)
+    $('#map_list').css('height',$(window).height()-50)
+    $('.hamb_btn').on('click',function(){
+        if(show_type==1){
+            $('#show_map').hide();
+            $('#show_list').show();
+            show_type=2;
+        }else{
+            $('#show_map').show();
+            $('#show_list').hide();
+            show_type=1;
+        }
+    });
+    $('.head_btn').on('click',function(){
+        location.href="main.html"
+    });
+    $('.deposit_btn').on('click',function(){
+        PopWithBtn({
+            "tip":"提示",
+            "title":"借书需先缴纳99元押金",
+            "btns":['取消','去缴纳'],
+            "cancel":function(){
+                $('#cover').hide()
+            },
+            "confirm":function(){
+               location.href='account_pay.html'
+            }
+        });
+    });
+    $('#borrow').on('click',function(){
+        PopWithBtn({
+            "tip":"提示",
+            "title":"正在开发。。。",
+            "btns":['知道啦'],
+            "cancel":function(){
+                $('#cover').hide()
+            },
+            "confirm":function(){
+                $('#cover').hide()
+            }
+        });
+    });
+    $('#return').on('click',function(){
+        PopWithBtn({
+            "tip":"提示",
+            "title":"正在开发。。。",
+            "btns":['知道啦'],
+            "cancel":function(){
+                $('#cover').hide()
+            },
+            "confirm":function(){
+                $('#cover').hide()
+            }
+        });
+    });
+    // PopWithBtn({
+    //         "tip":"提示",
+    //         "title":"借书需先缴纳99元押金",
+    //         "btns":['取消','去缴纳'],
+    //         "cancel":function(){
+    //             $('#cover').hide()
+    //         },
+    //         "confirm":function(){
+    //             $('#cover').hide()
+    //         }
+    //     });
+    // 弹窗
+    //下拉刷新
+    // var $statu = $('.loading-warp .text');
+	// var pullRefresh = $('.map_list').pPullRefresh({
+	// 	$el: $('.map_list'),
+	// 	$loadingEl: $('.loading-warp'),
+	// 	sendData: null,
+	// 	url: 'test.php',
+	// 	autoHide: true,
+	// 	callbacks: {
+	// 		pullStart: function(){$statu.text('松开开始刷新');},
+	// 		start: function(){$statu.text('数据刷新中···');},
+	// 		success: function(response){$statu.text('数据刷新成功！'); },
+	// 		end: function(){$statu.text('下拉刷新结束');},
+	// 		error: function(){$statu.text('找不到请求地址,数据刷新失败');}
+	// 	}
+    // });
+    // pullRefresh.reset(true);
+    // pullRefresh.setDestroy(true);
+</script>
+<script src="js/gaodelbs.js"></script>
+
+</html>

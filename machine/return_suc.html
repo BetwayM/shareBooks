@@ -1,0 +1,93 @@
+<!--
+ * @Author: huangbo 
+ * @Date: 2017-11-21 13:26:00 
+ * @Last Modified by:   heying 
+ * @Last Modified time: 2017-11-21 13:26:00 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="借光图书"/>
+    <meta name="author" content="heying, 848032671@qq.com"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no;">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name = "format-detection" content ="telephone=no">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/machine.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/machine.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/url.js"></script>
+    <title>借光共享图书</title>
+</head>
+<body>
+    <div class="device">www.jieguang.com</div>
+   <div class="banner">
+    <!-- <video width="1080" height="608.625" src="img/ad.mp4" autoplay ></video> -->
+    <div class="swiper-container" id="ad">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/2.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/3.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/4.jpg" alt=""></div>
+        </div>
+    </div>
+   </div>
+   <div class="tip_big"><span>icon</span>还书成功!</div>
+   <div class="tip_normal">归还信息：《杀死一只知更鸟》 2017-11-17</div>
+   <div class="tip_normal">请在手机微信借光小程序完成支付。</div>
+   <div class="tip_withbtn"><span class="tip">继续借书请</span><button class="timetohome">返回首页</button></div>
+   <div class="change_withicon"><span>icon</span>换一换</div>
+   <div class="book_intro_book">
+        <div class="intro_item"><img src="img/book13.jpg" alt=""><div class="name">孩子们的诗</div><div class="author">果麦</div></div>             
+        <div class="intro_item"><img src="img/book14.jpg" alt=""><div class="name">百年法</div><div class="author">[日] 山田宗树</div></div>             
+        <div class="intro_item"><img src="img/book15.jpg" alt=""><div class="name">现实不似你所见</div><div class="author">[意] 卡洛·罗韦利</div></div>             
+        <div class="intro_item"><img src="img/book16.jpg" alt=""><div class="name">人之彼岸</div><div class="author">郝景芳</div></div>             
+        <div class="intro_item"><img src="img/book17.jpg" alt=""><div class="name">我在秘密生长</div><div class="author">[哥伦比亚] 艾玛·雷耶斯</div></div>             
+        <div class="intro_item"><img src="img/book18.jpg" alt=""><div class="name">牛蛙</div><div class="author">胡迁</div></div>             
+       </div>
+<div class="fixed_btn" style="left:920px">
+    <button class="btn_item" id="timer">30s</button>
+    <button class="btn_item">H</button>
+</div>
+
+</body>
+<script src="js/swiper.min.js"></script>
+<script>
+     var ad = new Swiper('#ad', {
+        spaceBetween: 30,
+        preloadImages:false,
+        loop:true,
+        zoom:true,
+        centeredSlides: true,
+        autoplay: 3000,
+        autoplayDisableOnInteraction: true
+    });
+    $('.intro_item').on('click',function(){
+        location.href="detail.html"
+    });
+    var index=0;
+    var word=$('.device').text();
+    var inter=setInterval(function(){
+        $('.device').text(word.substring(0,index++));
+        if($('.device').text().length==word.length){
+            clearInterval(inter);
+        }
+    }, 100);
+    // 倒计时
+    var i=30;
+    var inter2=setInterval(function(){
+        i=i-1;
+        if(i<0){
+            clearInterval(inter2);
+            // 回到首页
+            return false;
+        }
+        $('#timer').text(i+'s');
+    },1000)
+</script>

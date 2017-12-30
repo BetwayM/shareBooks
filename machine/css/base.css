@@ -1,0 +1,65 @@
+/*
+ * @Author: huangbo 
+ * @Date: 2017-11-21 13:25:32 
+ * @Last Modified by: heying
+ * @Last Modified time: 2017-12-25 16:51:49
+ */
+ *{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: "微软雅黑","Helvetica Neue",Helvetica,Arial,sans-serif;
+    /* 防止超出页面 */
+    box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	/* Firefox */
+	-webkit-box-sizing: border-box;
+	/* Safari */
+}
+input:-webkit-input-placeholder { /* WebKit browsers */
+    text-indent: 1em;
+    　　color:#999;
+}
+input::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    text-indent: 1em;
+    
+    　　color:#999;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    text-indent: 1em;
+    　color:#999;
+}
+input::-ms-input-placeholder { /* Internet Explorer 10+ */
+    text-indent: 1em;
+    　　color:#999;
+}
+input{
+    -webkit-appearance: none;
+}
+textarea{
+    -webkit-appearance: none;
+}
+textarea,input[type="password"],input[type="text"],input[type="num"]{resize:none;outline:0;-webkit-appearance:none;white-space:pre-wrap;word-wrap:break-word;background:#fff}
+@font-face {
+    font-family: 'iconfont';  /* project id 507112 */
+    src: url('http://at.alicdn.com/t/font_507112_w3f6fgi05h0ssjor.eot');
+    src: url('http://at.alicdn.com/t/font_507112_w3f6fgi05h0ssjor.eot?#iefix') format('embedded-opentype'),
+    url('http://at.alicdn.com/t/font_507112_w3f6fgi05h0ssjor.woff') format('woff'),
+    url('http://at.alicdn.com/t/font_507112_w3f6fgi05h0ssjor.ttf') format('truetype'),
+    url('http://at.alicdn.com/t/font_507112_w3f6fgi05h0ssjor.svg#iconfont') format('svg');
+  }
+a{
+    text-decoration: none;
+}
+a:visited{
+    text-decoration: none;
+}
+.body{
+    background: #fff;
+}
+body{
+    width: 1080px !important;
+    height: 1920px !important;
+    background: #fff;
+    margin: 0 auto;
+}

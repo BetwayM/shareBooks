@@ -1,0 +1,178 @@
+<!--
+ * @Author: huangbo 
+ * @Date: 2017-11-21 13:26:00 
+ * @Last Modified by:   heying 
+ * @Last Modified time: 2017-11-21 13:26:00 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="借光图书"/>
+    <meta name="author" content="heying, 848032671@qq.com"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no;">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name = "format-detection" content ="telephone=no">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/machine.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/machine.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/url.js"></script>
+    <title>借光共享图书</title>
+</head>
+<body>
+    <div class="device">www.jieguang.com</div>
+    <div class="cover">
+        <div class="ercode_content animated slideInUp">
+            <div class="codeborder"><img src="img/ercode.jpg" alt=""></div>
+            <div class="tip">请使用设备扫描二维码借书</div>
+            <BUTTON class="codebtn"><span>&#xe633;</span><span id="sec">30s</span></BUTTON>
+        </div>
+    </div>
+   <div class="banner">
+    <!-- <video width="1080" height="608.625" src="img/ad.mp4" autoplay ></video> -->
+    <div class="swiper-container" id="ad">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/2.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/3.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/4.jpg" alt=""></div>
+        </div>
+    </div>
+   </div>
+<div class="detail">
+    <div class="book_main">
+        <img src="img/book36.jpg" class="book">
+        <div class="book_detail_right">
+            <div class="book_name">何以笙箫默</div>
+            <div class="detail_item"><span>作者:</span>管塔稅昵</div>
+            <div class="detail_item"><span>翻译:</span>[中]沃·兹基</div>
+            <div class="detail_item"><span>原作名:</span>heyishenxiaomo</div>
+            <div class="detail_item"><span>出版社:</span>南方出版社</div>
+            <div class="detail_item"><span>出版日期:</span>2017/10</div>
+            <div class="detail_item"><span>页数:</span>405</div>
+            <div class="detail_item"><span>借光价:</span>45元</div>
+        </div>
+    </div>
+</div>
+<button class="borrow_btn">借这本</button>
+<div class="book_tipwithicon">
+    <img src="img/tipicon1.png"><span>内容简介</span>
+</div>
+<div class="book_intro">苦苦等待丈夫从战场归来的妻子，得知丈夫成了信服都教的异教徒，醉心稀有鹦鹉的鸟类学家，只能眼睁睁看着叛军以它们的栖息地和木业大亨换子弹。</div>
+<div class="book_time"><span>预计阅读时长:</span>4.5h</div>
+<div class="book_time"><span>平均阅读时长:</span>3.2h</div>
+<div class="book_img">
+    <div class="swiper-container" id="bookimg">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/book6.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/book36.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/book35.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/book38.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/book31.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/book32.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/book41.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/book15.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/book18.jpg" alt=""></div>
+        </div>
+    </div>
+</div>
+<div class="book_tipwithicon">
+    <img src="img/tipicon1.png"><span>作者简介</span>
+</div>
+<div class="book_intro">苦苦等待丈夫从战场归来的妻子，得知丈夫成了信服都教的异教徒，醉心稀有鹦鹉的鸟类学家，只能眼睁睁看着叛军以它们的栖息地和木业大亨换子弹。</div>
+<div class="book_tipwithicon">
+    <img src="img/tipicon1.png"><span>目录</span>
+</div>
+<div class="book_intro">苦苦等待丈</div>
+<div class="book_intro">来的妻子</div>
+<div class="book_intro">丈夫成了信服都</div>
+<div class="book_intro">鹦鹉的鸟类学</div>
+<div class="book_intro">眼睁睁看着</div>
+<div class="book_intro">它们的栖息地</div>
+<div class="fixed_btn">
+    <button class="btn_item">K</button>
+    <button class="btn_item" id="timer">30s</button>
+    <button class="btn_item">H</button>
+</div>
+
+</body>
+<script src="js/swiper.min.js"></script>
+<script>
+    var inter;
+    $('.borrow_btn').on('click',function(){
+        $('.cover').show();
+        var i=30;
+        inter=setInterval(function(){
+            i=i-1;
+            if(i<0){
+                clearInterval(inter);
+                $('.ercode_content').removeClass('animated slideInUp');
+                $('.ercode_content').show();
+                $('.ercode_content').addClass('animated slideOutDown');
+                setTimeout(() => {
+                $('.cover').hide();
+                $('.ercode_content').removeClass('animated slideOutDown');
+                $('.ercode_content').addClass('animated slideInUp');                  
+                }, 1000);
+                $('#sec').text('30s');
+                return false;
+            }
+            $('#sec').text(i+'s');
+
+        },1000)
+    });
+    $('.codebtn').on('click',function(){
+        clearInterval(inter);
+        $('.ercode_content').removeClass('animated slideInUp');
+        $('.ercode_content').show();
+        $('.ercode_content').addClass('animated slideOutDown');
+        setTimeout(() => {
+        $('.cover').hide();
+        $('.ercode_content').removeClass('animated slideOutDown');
+        $('.ercode_content').addClass('animated slideInUp');                  
+        }, 1000);
+    });
+     var ad = new Swiper('#ad', {
+        spaceBetween: 30,
+        preloadImages:false,
+        loop:true,
+        zoom:true,
+        centeredSlides: true,
+        autoplay: 3000,
+        autoplayDisableOnInteraction: true
+    });
+    var bookimg = new Swiper('#bookimg', {
+        spaceBetween: 30,
+        preloadImages:false,
+        loop:true,
+        zoom:true,
+        centeredSlides: true,
+       slidesPerView:2
+    });
+    var index=0;
+    var word=$('.device').text();
+    var inter=setInterval(function(){
+        $('.device').text(word.substring(0,index++));
+        if($('.device').text().length==word.length){
+            clearInterval(inter);
+        }
+    }, 100);
+     // 倒计时
+     var i=30;
+    var inter2=setInterval(function(){
+        i=i-1;
+        if(i<0){
+            clearInterval(inter2);
+            // 回到首页
+            return false;
+        }
+        $('#timer').text(i+'s');
+    },1000)
+</script>
+</html>

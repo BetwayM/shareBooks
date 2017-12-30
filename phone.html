@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="借光图书,借光共享图书，共享图书"/>
+    <meta name="author" content="heying, 848032671@qq.com,momo,huangbo "/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no;">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name = "format-detection" content ="telephone=no">
+    <title>绑定手机——借光共享图书</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/library.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/library.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/url.js"></script>
+</head>
+<body class="body">
+<div id="bind" class="bind animated fadeIn">
+    <div class="input_group">
+        <input type="number" pattern="\d*" class="input_phone" placeholder="请输入手机号码" onkeyup="this.value=this.value.replace(/[^\d]/g,'')">
+        <input type="number" pattern="\d*" class="input_code" placeholder="请输入验证码" onkeyup="this.value=this.value.replace(/[^\d]/g,'')">
+        <button class="getcode_btn">发送验证码</button>
+    </div>
+    <button class="bind_phone">绑定</button>
+</div>
+<!-- 绑定成功显示 -->
+<div id="bind_suc" class="bind animated fadeIn" style="display:none;">
+    <div class="bindsuc_img"><img src="images/head.png" alt=""></div>
+    <div class="bindsuc_tip">手机号绑定成功!</div>
+    <div class="bindsuc_tip_sub">恭喜你绑定成功，页面将在<span id="sec" style="color:#5555ff">3</span>秒后跳转...</div>
+</div>
+    <div class="footer">
+        <div>借光共享图书</div>
+        <div>©Eric A. and Kathryn S. Meyer. All Rights Reserved.</div>
+    </div>
+</body> 
+<script>
+$('.bind_phone').on('click',function(){
+    // 以下是测试跳转，正式环境在ajax成功后跳转
+    $('#bind').hide();
+    $('#bind_suc').show();
+    var i=3;
+    var inter=setInterval(function(){
+        i=i-1;
+        if(i<=0){
+            clearInterval(inter);
+            // 此处跳转
+            $('#bind').show();
+            $('#bind_suc').hide();
+        }
+        $('#sec').text(i);
+    },1000)
+})
+</script>
+</html>

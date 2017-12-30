@@ -1,0 +1,66 @@
+{
+    "type": "complete",
+    "info": "SUCCESS",
+    "status": 1,
+    "oga": "jsonp_546860_",
+    "position": {
+        "N": 22.24305,
+        "L": 113.57432,
+        "lng": 113.57432,
+        "lat": 22.24305
+    },
+    "message": "Get geolocation time out.Get ipLocation success.Get address success.",
+    "location_type": "ip",
+    "accuracy": null,
+    "isConverted": true,
+    "addressComponent": {
+        "citycode": "0756",
+        "adcode": "440402",
+        "businessAreas": [
+            {
+                "name": "吉大",
+                "id": "440402",
+                "location": {
+                    "N": 22.249805899791216,
+                    "L": 113.57944830271379,
+                    "lng": 113.579448,
+                    "lat": 22.249806
+                }
+            },
+            {
+                "name": "石花",
+                "id": "440402",
+                "location": {
+                    "N": 22.241120391857482,
+                    "L": 113.57532006870224,
+                    "lng": 113.57532,
+                    "lat": 22.24112
+                }
+            },
+            {
+                "name": "石花西路",
+                "id": "440402",
+                "location": {
+                    "N": 22.23937334285715,
+                    "L": 113.56522668571426,
+                    "lng": 113.565227,
+                    "lat": 22.239373
+                }
+            }
+        ],
+        "neighborhoodType": "",
+        "neighborhood": "",
+        "building": "",
+        "buildingType": "",
+        "street": "景山路",
+        "streetNumber": "62号",
+        "province": "广东省",
+        "city": "珠海市",
+        "district": "香洲区",
+        "township": "吉大街道"
+    },
+    "formattedAddress": "广东省珠海市香洲区吉大街道景山路62号广发金融大厦(景山路)",
+    "roads": [],
+    "crosses": [],
+    "pois": []
+}
